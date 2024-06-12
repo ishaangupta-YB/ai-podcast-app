@@ -4,13 +4,13 @@
 
 import type { WebhookEvent } from "@clerk/nextjs/server";
 import { httpRouter } from "convex/server";
-import { Webhook } from "svix";
-
+import { Webhook } from "svix"; 
 import { internal } from "./_generated/api";
 import { httpAction } from "./_generated/server";
 
 const handleClerkWebhook = httpAction(async (ctx, request) => {
   const event = await validateRequest(request);
+  console.log(event)
   if (!event) {
     return new Response("Invalid request", { status: 400 });
   }
@@ -22,6 +22,7 @@ const handleClerkWebhook = httpAction(async (ctx, request) => {
         imageUrl: event.data.image_url,
         name: event.data.first_name!,
       });
+      console.log("here at created")
       break;
     case "user.updated":
       await ctx.runMutation(internal.users.updateUser, {

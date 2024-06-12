@@ -1,7 +1,7 @@
 const authConfig = {
   providers: [
     {
-      domain: "https://up-sawfish-53.clerk.accounts.dev",
+      domain: process.env.NEXT_CLERK_CONVEX_DOMAIN,
       applicationID: "convex",
     },
   ],

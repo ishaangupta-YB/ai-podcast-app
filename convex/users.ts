@@ -1,4 +1,5 @@
 import { ConvexError, v } from "convex/values";
+
 import { internalMutation, query } from "./_generated/server";
 
 export const getUserById = query({
@@ -61,6 +62,7 @@ export const createUser = internalMutation({
       imageUrl: args.imageUrl,
       name: args.name,
     });
+    console.log(args)
   },
 });
 
