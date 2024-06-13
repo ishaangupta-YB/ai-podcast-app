@@ -16,7 +16,6 @@ const PodcastCard = ({
   const podcast = useQuery(api.podcasts.getPodcastById, { podcastId });
 
   const isOwner = user?.id === podcast?.authorId;
-
   const router = useRouter();
   const updatePodcastViews = useMutation(api.podcasts.updatePodcastViews);
   const handleViews = async () => {
